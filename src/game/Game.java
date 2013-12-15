@@ -1,4 +1,3 @@
-//Hassan Ndow
 
 package game;
 
@@ -19,6 +18,8 @@ import java.awt.image.DataBufferInt;
 import javax.swing.JFrame;
 
 import level.Level;
+
+//Hassan Ndow
 
 //Ctrl Shift o to import packages
 
