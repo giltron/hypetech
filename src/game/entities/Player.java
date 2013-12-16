@@ -65,17 +65,33 @@ public class Player extends Mob
 	{
 		int xTile = 0;
 		int yTile = 28;
+		int walkingSpeed = 4;
+		int flipTop = (numSteps >> walkingSpeed ) & 1;
+		int flipBottom = (numSteps >> walkingSpeed ) & 1;
+		
+		if(movingDir == 1)
+		{
+			xTile +=2;
+		}
+		
+		else if (movingDir > 1)
+		{
+			xTile += 4 + ((numSteps >> walkingSpeed) & 1) * 2;
+			flipTop = (movingDir - 1 ) % 2;
+			flipBottom = (movingDir - 1 ) % 2;
+		}
+		
 		int modifier = 8 * scale;
 		int xOffset = x - modifier / 2;
 		int yOffset = y - modifier / 2 - 4;
 		
-		//lower body
-		screen.render(xOffset, yOffset, xTile + yTile *32, color, 0x00,scale);
-		screen.render(xOffset + modifier, yOffset, (xTile + 1) + yTile *32, color, 0x00,scale);
-		
 		//upper body
-		screen.render(xOffset, yOffset + modifier, xTile + (yTile +1) *32, color, 0x00,scale);
-		screen.render(xOffset + modifier, yOffset + modifier, (xTile +1) + (yTile + 1) *32, color, 0x00,scale);
+		screen.render(xOffset + (modifier * flipTop), yOffset, xTile + yTile *32, color, flipTop,scale);
+		screen.render(xOffset + modifier - (modifier * flipTop), yOffset, (xTile + 1) + yTile *32, color, flipTop,scale);
+		
+		//lower body
+		screen.render(xOffset + (modifier * flipBottom), yOffset + modifier, xTile + (yTile +1) *32, color, flipBottom,scale);
+		screen.render(xOffset + modifier - (modifier * flipBottom), yOffset + modifier, (xTile +1) + (yTile + 1) *32, color, flipBottom,scale);
 		
 	}
 	

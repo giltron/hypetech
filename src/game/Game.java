@@ -2,8 +2,6 @@
 package game;
 
 import game.entities.Player;
-import gfx.Colors;
-import gfx.Font;
 import gfx.Screen;
 import gfx.SpriteSheet;
 
