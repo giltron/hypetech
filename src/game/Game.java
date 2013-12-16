@@ -188,6 +188,7 @@ public class Game extends Canvas implements Runnable{
 		
 		level.renderTiles(screen,xOffset,yOffset);
 		
+		/* Place 0-9 grid on top of screen
 		for(int x = 0; x < level.width; x++)
 		{
 			int color = Colors.get(-1,-1,-1,000);
@@ -197,6 +198,8 @@ public class Game extends Canvas implements Runnable{
 			}
 			Font.render((x%10)+ "",screen,0+(x*8),0,color);
 		}
+		
+		*/
 		
 		level.renderEntities(screen);
 	

@@ -9,6 +9,7 @@ public class Player extends Mob
 {
 	private InputHandler input;
 	private int color = Colors.get(-1,111,145,321);
+	private int scale = 1;
 
 	public Player(Level level, int x, int y, InputHandler input)
 	{
@@ -56,6 +57,7 @@ public class Player extends Mob
 		}
 		
 		
+		
 	}
 
 	
@@ -68,12 +70,12 @@ public class Player extends Mob
 		int yOffset = y - modifier / 2 - 4;
 		
 		//lower body
-		screen.render(xOffset, yOffset, xTile + yTile *32, color);
-		screen.render(xOffset + modifier, yOffset, (xTile + 1) + yTile *32, color);
+		screen.render(xOffset, yOffset, xTile + yTile *32, color, 0x00,scale);
+		screen.render(xOffset + modifier, yOffset, (xTile + 1) + yTile *32, color, 0x00,scale);
 		
 		//upper body
-		screen.render(xOffset, yOffset + modifier, xTile + (yTile +1) *32, color);
-		screen.render(xOffset + modifier, yOffset + modifier, (xTile +1) + (yTile + 1) *32, color);
+		screen.render(xOffset, yOffset + modifier, xTile + (yTile +1) *32, color, 0x00,scale);
+		screen.render(xOffset + modifier, yOffset + modifier, (xTile +1) + (yTile + 1) *32, color, 0x00,scale);
 		
 	}
 	
